@@ -46,27 +46,31 @@ const backgroundImages = [
   },
 ];
 
-// 4 Feature cards with high-visibility photos and descriptions
+// 4 Feature cards with high-visibility photos, descriptions, and destination links
 const heroFeatures = [
   { 
     text: 'Groundwater Analysis', 
     img: '/home/GW.png',
-    description: 'Monitoring depth levels and quality parameters across the basin.'
+    description: 'Monitoring depth levels and quality parameters across the basin.',
+    href: '/groundwater/quality'
   },
   { 
     text: 'MAR Zones', 
     img: '/home/MAR.png',
-    description: 'Identifying Managed Aquifer Recharge sites for water sustainability.'
+    description: 'Identifying Managed Aquifer Recharge sites for water sustainability.',
+    href: '/mar/sites'
   },
   { 
     text: 'TEM Surveys', 
     img: '/home/TEM.jpeg',
-    description: 'Deep subsurface resistivity mapping using electromagnetic tech.'
+    description: 'Deep subsurface resistivity mapping using electromagnetic tech.',
+    href: '/tem-data'
   },
   { 
     text: 'Potential Mapping', 
     img: '/home/MAPPING.png',
-    description: 'Visualizing high-yield zones for future resource planning.'
+    description: 'Visualizing high-yield zones for future resource planning.',
+    href: '/groundwater/potential-zone'
   },
 ];
 
@@ -206,38 +210,39 @@ function HeroSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT SIDE: CARDS WITH DESCRIPTIONS */}
+          {/* RIGHT SIDE: CARDS WITH DESCRIPTIONS (Now with Links) */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-4 lg:gap-6">
             {heroFeatures.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: 50, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ delay: 1 + (index * 0.1) }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="group relative h-64 xl:h-72 flex flex-col overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl"
-              >
-                {/* Image Section */}
-                <div className="relative h-2/3 w-full overflow-hidden">
-                  <Image 
-                    src={item.img} 
-                    alt={item.text} 
-                    fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                </div>
-                
-                {/* Text Content Section */}
-                <div className="h-1/3 flex flex-col justify-center bg-gradient-to-br from-slate-900 to-slate-800 p-3">
-                  <span className="text-[10px] sm:text-[11px] font-black text-cyan-300 uppercase tracking-widest mb-1">
-                    {item.text}
-                  </span>
-                  <p className="text-[10px] leading-tight text-gray-400 line-clamp-2">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
+              <Link key={index} href={item.href} className="block">
+                <motion.div
+                  initial={{ opacity: 0, x: 50, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  transition={{ delay: 1 + (index * 0.1) }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="group relative h-64 xl:h-72 flex flex-col overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl cursor-pointer"
+                >
+                  {/* Image Section */}
+                  <div className="relative h-2/3 w-full overflow-hidden">
+                    <Image 
+                      src={item.img} 
+                      alt={item.text} 
+                      fill 
+                      className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
+                  
+                  {/* Text Content Section */}
+                  <div className="h-1/3 flex flex-col justify-center bg-gradient-to-br from-white-100 to-white-200 p-3">
+                    <span className="text-[10px] sm:text-[11px] font-black text-cyan-300 uppercase tracking-widest mb-1">
+                      {item.text}
+                    </span>
+                    <p className="text-[10px] leading-tight text-gray-200 line-clamp-2">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
 
@@ -326,10 +331,10 @@ function AboutSection() {
               <h3 className="text-2xl font-black text-slate-800 mb-6">Key Components</h3>
               <div className="space-y-4">
                 {[
-                  { title: 'Groundwater Depth & Quality', icon: '💧', color: 'from-blue-500 to-cyan-500' },
-                  { title: 'TEM Data Visualization', icon: '📡', color: 'from-cyan-500 to-teal-500' },
-                  { title: 'MAR Suitable Zones', icon: '📍', color: 'from-teal-500 to-emerald-500' },
-                  { title: 'Integrated Modelling', icon: '📊', color: 'from-emerald-500 to-green-500' },
+                  { title: 'Groundwater Depth & Quality', icon: '挑', color: 'from-blue-500 to-cyan-500' },
+                  { title: 'TEM Data Visualization', icon: '藤', color: 'from-cyan-500 to-teal-500' },
+                  { title: 'MAR Suitable Zones', icon: '桃', color: 'from-teal-500 to-emerald-500' },
+                  { title: 'Integrated Modelling', icon: '投', color: 'from-emerald-500 to-green-500' },
                 ].map((f, i) => (
                   <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow">
                     <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${f.color} flex items-center justify-center text-xl text-white`}>{f.icon}</div>

@@ -1,12 +1,12 @@
 {
   "app": {
-    "[project]/app/_not-found/page": [
+    "[project]/app/groundwater/potential-zone/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ],
-    "[project]/app/about/page": [
+    "[project]/app/groundwater/quality/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ],
-    "[project]/app/data-access/page": [
+    "[project]/app/mar/sites/page": [
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
     ],
     "[project]/app/page": [
