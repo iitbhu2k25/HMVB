@@ -27,7 +27,7 @@ export default function TopBar() {
     };
 
     return (
-        <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 text-white text-xs">
+        <div className="bg-[#0a2e4d] text-white text-xs border-b border-white/10">
             <div className="max-w-[2800px] mx-auto px-3 sm:px-4 py-1">
                 <div className="flex items-center justify-between">
                     {/* Left: Government Links - simplified on mobile */}
@@ -65,6 +65,18 @@ export default function TopBar() {
                             <div className="flex flex-col leading-tight">
                                 <span className="font-medium">राष्ट्रीय स्वच्छ गंगा मिशन</span>
                                 <span className="text-[10px] opacity-90">National Mission for Clean Ganga</span>
+                            </div>
+                        </a>
+                        <span className="text-white/50 hidden md:inline">|</span>
+                        <a
+                            href="https://www.slcrvaranasi.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-white/80 transition-colors hidden md:block"
+                        >
+                            <div className="flex flex-col leading-tight">
+                                {/* <span className="font-medium">राष्ट्रीय स्वच्छ गंगा मिशन</span> */}
+                                <span className="text-[15px] opacity-90">Smart laboratory on clean rivers</span>
                             </div>
                         </a>
                     </div>

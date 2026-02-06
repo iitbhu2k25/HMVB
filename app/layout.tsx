@@ -12,9 +12,9 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "SLCR - Smart Laboratory on Clean Rivers",
-  description: "Indo-Danish initiative for sustainable river rejuvenation and innovative wastewater treatment technologies in Varanasi.",
-  keywords: ["SLCR", "Clean Rivers", "Varanasi", "India Denmark", "Jal Shakti", "Namami Gange", "Water Technology"],
+  title: "HMVB - Hydrological Modelling for Varuna River Basin",
+  description: "Comprehensive hydrological modelling and analysis portal for Varuna River Basin. Features groundwater depth and quality monitoring, MAR (Managed Aquifer Recharge) suitable zones analysis, and TEM (Transient Electromagnetic Method) data visualization.",
+  keywords: ["Hydrological Modelling", "Varuna River Basin", "Groundwater Monitoring", "MAR", "Managed Aquifer Recharge", "TEM Data", "Water Quality", "Aquifer Analysis", "Groundwater Depth", "Hydrogeology"],
 };
 
 interface RootLayoutProps {
@@ -28,11 +28,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {/* Top Government Links Bar */}
         <TopBar />
 
-        {/* Header with Logos */}
-        <Header />
-
         {/* Main Navigation */}
         <MainNav />
+
+        {/* Header with Logos */}
+        {/* <Header /> */}
+
+        
 
         {/* Main Content */}
         <main id="main-content" tabIndex={-1} className="focus:outline-none">

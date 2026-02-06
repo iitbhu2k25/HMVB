@@ -2,80 +2,7 @@
 
 import Image from "next/image";
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-
-// Team SECR members with photos
-const teamMembers = {
-    principalInvestigators: [
-        {
-            name: "Prof. Shishir Gaur",
-            designation: "Professor, Dept. of Civil Engg., IIT (BHU), Varanasi",
-            role: "Principal Investigator",
-            image: "/project_images/SECR/sgsir.png",
-        },
-        {
-            name: "Prof. Anurag Ohri",
-            designation: "Professor, Dept. of Civil Engg., IIT (BHU), Varanasi",
-            role: "Co-Principal Investigator",
-            image: "/project_images/SECR/ao.jpg",
-        },
-        
-    ],
-    researchTeam: [
-        {
-            name: "Dr. Hema Patel",
-            designation: "Senior Project Scientist",
-            image: "/project_images/SECR/image2.jpg",
-        },
-        {
-            name: "Dr. Nikhilesh Singh",
-            designation: "Research Associate-III",
-            image: "/project_images/SECR/image7.jpg",
-        },
-        {
-            name: "Dr. Anugrah Ray",
-            designation: "Research Associate-I",
-            image: "/project_images/SECR/image10.jpg",
-        },
-        {
-            name: "Dr. Dinkar Parashar",
-            designation: "Research Associate-I",
-            image: "/project_images/SECR/image9.jpg",
-        },
-        {
-            name: "Shri. Chakrawarti Patel",
-            designation: "Project Assistant (Technical)",
-            image: "/project_images/SECR/image1.jpg",
-        },
-        {
-            name: "Shri Abhishek Kumar",
-            designation: "Project Attendant (SLCR)",
-            image: "/project_images/SECR/image6.jpg",
-        },
-        {
-            name: "Shri Amit Kumar Sonkar",
-            designation: "Project Assistant (Technical)",
-            image: "/project_images/SECR/amit.jpg",
-        },
-    ],
-    admin: [
-        {
-            name: "Shri. Chandan Singh",
-            designation: "Senior Project Manager",
-            image: "/project_images/SECR/chandan.png",
-        },
-        {
-            name: "Shri. Krishna Tiwari",
-            designation: "Project Assistant (Admin)",
-            image: "/project_images/SECR/krishna.JPG",
-        },
-        {
-            name: "Shri. Suresh Kumar Pal",
-            designation: "Project Assistant (Admin)",
-            image: "/project_images/SECR/image4.jpg",
-        },
-    ],
-};
+import { Building2, Users, Globe, Lightbulb, Target, BookOpen, Handshake } from 'lucide-react';
 
 export default function SECRProject() {
     return (
@@ -108,7 +35,7 @@ export default function SECRProject() {
                         className="mb-4"
                     >
                         <span className="inline-block text-teal-300 text-lg sm:text-xl font-medium tracking-widest uppercase">
-                            Project SLCR Secretariat
+                            Project : SLCR Secretariat
                         </span>
                     </motion.div>
 
@@ -119,7 +46,7 @@ export default function SECRProject() {
                         className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight"
                     >
                         <span className="bg-gradient-to-r from-white via-green-100 to-teal-300 bg-clip-text text-transparent drop-shadow-2xl">
-                            Establishment of Secretariat
+                            SLCR Secretariat
                         </span>
                     </motion.h1>
 
@@ -141,10 +68,9 @@ export default function SECRProject() {
                 </div>
             </section>
 
-            {/* About Section - Side by Side Layout */}
+            {/* About Section */}
             <section className="py-12 sm:py-16 px-4 bg-white">
                 <div className="max-w-7xl mx-auto">
-                    {/* Modified grid to items-stretch for equal height columns */}
                     <div className="grid lg:grid-cols-2 gap-10 items-stretch">
                         {/* Left - Content */}
                         <motion.div
@@ -156,21 +82,10 @@ export default function SECRProject() {
                             <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">About SLCR Secretariat</h2>
                             <div className="prose prose-lg max-w-none text-justify">
                                 <p className="text-gray-700 leading-relaxed mb-4">
-                                    The <strong className="text-primary">Smart Laboratory on Clean Rivers (SLCR)</strong>
-                                    , an initiative of IIT (BHU) and NMCG under the India-Denmark Green Strategic Partnership, established in Varanasi,
-                                    is dedicated to bringing global sustainable solutions to current challenges in the field of clean rivers for the rejuvenation of streams and
-                                    rivers through collaborative efforts with government bodies, institutions, technology providers, and local communities, using a
-                                    living-lab approach at the Varuna River.
+                                    The <strong className="text-primary">Smart Laboratory on Clean Rivers (SLCR)</strong> in Varanasi is a pioneering Indo-Danish collaboration aimed at advancing sustainable river rejuvenation. Conceptualized under the joint leadership of Prime Minister Narendra Modi and Danish Prime Minister Mette Frederiksen, the initiative was formalized through a Memorandum of Understanding between India&apos;s Ministry of Jal Shakti and Denmark&apos;s Ministry of Environment in September 2022.
                                 </p>
-                                <p className="text-gray-700 leading-relaxed mb-4">
-                                    The Secretariat of Smart Laboratory on Clean Rivers (SLCR) in Varanasi has been set up in Department of Civil Engineering, Indian
-                                    Institute of Technology, Banaras Hindu University, Varanasi under the Green Strategic Partnership between India and Denmark.{" "}
-                                    {/* --- HIGHLIGHT ADJUSTMENT HERE: font-semibold text-gray-900 (Bold Black) --- */}
-                                    <span className="font-semibold text-gray-900">
-                                        Work is ongoing by a team of dedicated officials on the various aspects of sustainable and holistic rejuvenation of small rivers initiating in
-                                    </span>{" "}
-                                    river Varuna in Varanasi which is being established as a living lab for small rivers wherein various activities and projects are being
-                                    taken up in the initial phase.
+                                <p className="text-gray-700 leading-relaxed">
+                                    The core vision of SLCR is to mobilize global knowledge, technologies, and best practices to enable the holistic and sustainable rejuvenation of small rivers and tributaries. Emphasis is placed on solutions that are environmentally sound, economically viable, and socially appropriate within local contexts.
                                 </p>
                             </div>
                         </motion.div>
@@ -196,6 +111,108 @@ export default function SECRProject() {
                 </div>
             </section>
 
+            {/* Core Functions Section */}
+            <section className="py-12 sm:py-16 px-4 bg-gray-50">
+                <div className="max-w-6xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Core Functions</h2>
+
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <Handshake className="w-6 h-6 text-green-600" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-800 mb-2">Collaborative Platform</h3>
+                                        <p className="text-gray-600 leading-relaxed text-justify">
+                                            The laboratory functions as a collaborative platform for knowledge creation, transfer, and co-creation, bringing together government authorities, academic and research institutions, technology providers, and citizens.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <Lightbulb className="w-6 h-6 text-teal-600" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-800 mb-2">Living Lab Approach</h3>
+                                        <p className="text-gray-600 leading-relaxed text-justify">
+                                            SLCR addresses contemporary challenges related to river water quality and ecosystem health through targeted research and development. By adopting a Living Lab approach, the initiative facilitates real-world testing of innovative interventions, ensuring scalability, cost-effectiveness, and long-term sustainability.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <Target className="w-6 h-6 text-blue-600" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-800 mb-2">NMCG Support</h3>
+                                        <p className="text-gray-600 leading-relaxed text-justify">
+                                            The program directly supports the National Mission for Clean Ganga, with a strategic focus on small rivers and tributaries that are often underrepresented in large-scale river restoration efforts.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                                <div className="flex items-start gap-4">
+                                    <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <BookOpen className="w-6 h-6 text-purple-600" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-800 mb-2">Knowledge Repository</h3>
+                                        <p className="text-gray-600 leading-relaxed text-justify">
+                                            A key objective of SLCR is the development of a comprehensive, structured repository of knowledge, data, and validated technologies. This repository will enable systematic knowledge sharing and replication through national and international platforms.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Varuna River Section */}
+            <section className="py-12 sm:py-16 px-4 bg-white">
+                <div className="max-w-6xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="bg-gradient-to-r from-green-50 to-teal-50 p-8 rounded-3xl border border-green-100">
+                            <div className="flex items-start gap-4 mb-6">
+                                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <Globe className="w-7 h-7 text-white" />
+                                </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-gray-800">Varuna River Demonstration Site</h3>
+                                    <p className="text-gray-600">Living Lab for holistic river basin planning</p>
+                                </div>
+                            </div>
+                            <div className="prose prose-lg max-w-none text-justify space-y-4">
+                                <p className="text-gray-700 leading-relaxed">
+                                    The Varuna River has been identified as the demonstration site for implementing and evaluating integrated, technology-enabled interventions based on holistic river basin planning. Leveraging advanced monitoring tools, international expertise, and locally adapted governance and business models, SLCR seeks to demonstrate viable pathways for river rejuvenation.
+                                </p>
+                                <p className="text-gray-700 leading-relaxed">
+                                    The primary outcome will be a portfolio of proven, context-specific solutions that can be scaled across other small rivers and tributaries in India and in partner countries associated with the Global River Cities Alliance.
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Key Objectives Section */}
             <section className="py-12 sm:py-16 px-4 bg-gray-50">
                 <div className="max-w-6xl mx-auto">
@@ -206,7 +223,7 @@ export default function SECRProject() {
                         className="text-left mb-12"
                     >
                         <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Key Objectives</h2>
-                        
+
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                             <ul className="space-y-4 text-gray-700 text-lg leading-relaxed">
                                 <li className="flex gap-4">
@@ -236,113 +253,6 @@ export default function SECRProject() {
                             </ul>
                         </div>
                     </motion.div>
-
-                </div>
-            </section>
-
-            {/* Team SECR Section */}
-            <section className="py-12 sm:py-16 px-4 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center mb-12"
-                    >
-                        <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-3">Team SLCR Secretariat</h2>
-                        <p className="text-gray-600">The dedicated team driving the SLCR vision forward</p>
-                    </motion.div>
-
-                    {/* Principal Investigators - Centered */}
-                    <div className="mb-16">
-                        <div className="flex flex-wrap justify-center gap-8">
-                            {teamMembers.principalInvestigators.map((member, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="text-center w-56"
-                                >
-                                    <div className="w-full aspect-square mb-4 rounded-xl overflow-hidden shadow-lg bg-gray-100">
-                                        <Image
-                                            src={member.image}
-                                            alt={member.name}
-                                            width={300}
-                                            height={300}
-                                            quality={100}
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
-                                    <h4 className="text-lg font-bold text-primary mb-1">{member.name}</h4>
-                                    <p className="text-sm text-gray-600">{member.role}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Research and Development Team - CENTERED */}
-                    <div className="mb-12">
-                        <h3 className="text-2xl font-bold text-primary mb-8 text-center">Research and Development Team</h3>
-                        {/* Changed from Grid to Flex to enable centering of the last row */}
-                        <div className="flex flex-wrap justify-center gap-5">
-                            {teamMembers.researchTeam.map((member, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.03 }}
-                                    // Added w-40 sm:w-44 md:w-48 to ensure consistent sizing in flex layout
-                                    className="text-center w-40 sm:w-44 md:w-48"
-                                >
-                                    <div className="w-full aspect-square mb-3 rounded-xl overflow-hidden shadow-md bg-gray-100">
-                                        <Image
-                                            src={member.image}
-                                            alt={member.name}
-                                            width={200}
-                                            height={200}
-                                            quality={100}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <h4 className="text-sm font-bold text-gray-800 mb-1">{member.name}</h4>
-                                    <p className="text-xs text-gray-500">{member.designation}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Admin Section */}
-                    <div className="mb-12">
-                        <h3 className="text-2xl font-bold text-primary mb-8 text-center">Admin Team</h3>
-                        <div className="flex justify-center">
-                            {teamMembers.admin.map((member, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="text-center w-48"
-                                >
-                                    <div className="w-full aspect-square mb-3 rounded-xl overflow-hidden shadow-md bg-gray-100">
-                                        <Image
-                                            src={member.image}
-                                            alt={member.name}
-                                            width={200}
-                                            height={200}
-                                            quality={100}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </div>
-                                    <h4 className="text-sm font-bold text-gray-800 mb-1">{member.name}</h4>
-                                    <p className="text-xs text-gray-500">{member.designation}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
                 </div>
             </section>
         </main>

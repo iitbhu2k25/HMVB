@@ -2,37 +2,7 @@
 
 import Image from "next/image";
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-
-// Team HMVB members with photos
-const teamMembers = {
-  principalInvestigators: [
-    
-    {
-      name: "Prof. S.B. Dwivedi",
-      designation: "Professor, IIT (BHU), Varanasi",
-      role: "Principal Investigator",
-      image: "/project_images/HMVB/sbdwidedi.jpg",
-    },
-  ],
-  researchTeam: [
-    {
-      name: "Dr. Dharmendra Kumar",
-      designation: "Research Associate (I)",
-      image: "/project_images/HMVB/image2.jpg",
-    },
-    {
-      name: "Ashutosh Goutam",
-      designation: "Junior Research Fellow (JRF)",
-      image: "/project_images/HMVB/image3.jpg",
-    },
-    {
-      name: "Abhishek Singh",
-      designation: "Project Assistant",
-      image: "/project_images/HMVB/image1.jpg",
-    },
-  ],
-};
+import { Droplets, MapPin, Layers, BarChart3, Target, Lightbulb } from 'lucide-react';
 
 export default function HMVBProject() {
   return (
@@ -65,7 +35,7 @@ export default function HMVBProject() {
             className="mb-4"
           >
             <span className="inline-block text-cyan-300 text-lg sm:text-xl font-medium tracking-widest uppercase">
-              Project HMVB
+              Project : HMVB
             </span>
           </motion.div>
 
@@ -76,7 +46,7 @@ export default function HMVBProject() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight"
           >
             <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-300 bg-clip-text text-transparent drop-shadow-2xl">
-              Hydrogeological Models
+              Hydrogeological Modeling
             </span>
           </motion.h1>
 
@@ -86,7 +56,7 @@ export default function HMVBProject() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto"
           >
-            of the Varuna Basin
+            of the Varuna River Basin
           </motion.p>
         </div>
 
@@ -98,10 +68,9 @@ export default function HMVBProject() {
         </div>
       </section>
 
-      {/* About Section - Side by Side Layout */}
+      {/* About Section */}
       <section className="py-12 sm:py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* Modified grid to items-stretch for equal height columns */}
           <div className="grid lg:grid-cols-2 gap-10 items-stretch">
             {/* Left - Content */}
             <motion.div
@@ -113,29 +82,10 @@ export default function HMVBProject() {
               <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">About HMVB</h2>
               <div className="prose prose-lg max-w-none text-justify">
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  The <strong className="text-primary">Hydrogeological Models of the Varuna Basin (HMVB)</strong> project focuses on assessing and enhancing River-Aquifer Exchanges (RAE) in
-                   the Varuna River Basin, a tributary of the Ganga, to address declining baseflow and groundwater depletion. The primary challenge lies in understanding the complex riverbed
-                    lithology, which governs groundwater interactions but remains difficult to map using conventional methods. To overcome this, the study integrates advanced geophysical
-                     techniques (heliborne, surface-borne and river-borne TEM surveys), real-time IoT-based monitoring and numerical groundwater modelling to comprehensively assess
-                      river-aquifer dynamics.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  <strong className="text-gray-700">The key objectives of the project include:</strong>
+                  The second major project focuses on the <strong className="text-primary">hydrogeological modeling</strong> of the Varuna River Basin. This project aims to understand the complex interactions between surface water and groundwater in the basin. The modeling work is essential for developing effective strategies for river rejuvenation, as it provides insights into the flow of water, the movement of pollutants, and the impact of various interventions.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                    Mapping and characterising riverbed sediments to identify active exchange zones.                
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                    Quantifying groundwater contributions to the river and vice versa, assessing pollution plumes.                
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                    Developing an RAE model for optimized Managed Aquifer Recharge (MAR) site selection.                
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                    Comparing heliborne and river-borne TEM surveys to refine subsurface characterization methodologies.                
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                    Capacity building and startup promotion for technology transfer and wider adoption.                
+                  The hydrogeological modeling process involves collecting and analyzing data on the geology, topography, and hydrology of the Varuna River Basin. This includes information on the type and distribution of rocks and soils, the elevation and slope of the land, and the patterns of surface water flow. The data is used to create a detailed digital representation of the basin, which is then used to simulate the movement of water and pollutants.
                 </p>
               </div>
             </motion.div>
@@ -161,105 +111,102 @@ export default function HMVBProject() {
         </div>
       </section>
 
-      {/* Progress Report Section */}
-            <section className="py-12 sm:py-16 px-4 bg-gray-50">
-              <div className="max-w-6xl mx-auto">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8">Progress Report</h2>
-                  <div className="flex justify-center">
-                    <div className="rounded-xl overflow-hidden shadow-lg w-full">
-                      <Image
-                        src="/proj3.png"
-                        alt="Progress Report"
-                        width={1200}
-                        height={600}
-                        quality={100}
-                        className="w-full object-contain"
-                        style={{ minHeight: '500px' }}
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </section>
-
-      {/* Team HMVB Section */}
-      <section className="py-12 sm:py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+      {/* Modeling Approach Section */}
+      <section className="py-12 sm:py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-3">Team HMVB</h2>
-            <p className="text-gray-600">The experts driving hydrogeological research and innovation</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Modeling Approach</h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Layers className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Advanced Software Tools</h3>
+                    <p className="text-gray-600 leading-relaxed text-justify">
+                      The modeling work is conducted using advanced software tools that can simulate the behavior of groundwater systems. These tools take into account factors such as rainfall, evaporation, and the recharge of aquifers. The models are calibrated and validated using field data collected from monitoring wells and other sources.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <BarChart3 className="w-6 h-6 text-cyan-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Impact Assessment</h3>
+                    <p className="text-gray-600 leading-relaxed text-justify">
+                      The hydrogeological models developed by SLCR are used to assess the impact of various interventions on the river and its surrounding environment. For example, the models can be used to predict the effect of a new wastewater treatment plant on the water quality of the river.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">River Restoration Planning</h3>
+                    <p className="text-gray-600 leading-relaxed text-justify">
+                      The models help predict the impact of a proposed river restoration project on the groundwater table. They also help identify areas that are particularly vulnerable to pollution and require targeted intervention.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Droplets className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Real-world Conditions</h3>
+                    <p className="text-gray-600 leading-relaxed text-justify">
+                      This ensures that the models accurately reflect the real-world conditions of the basin. The models help in understanding the interaction between groundwater and surface water in the basin.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Principal Investigators - Centered */}
-          <div className="mb-16">
-            <div className="flex flex-wrap justify-center gap-8">
-              {teamMembers.principalInvestigators.map((member, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center w-56"
-                >
-                  <div className="w-full aspect-square mb-4 rounded-xl overflow-hidden shadow-lg bg-gray-100">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={300}
-                      height={300}
-                      quality={100}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="text-lg font-bold text-primary mb-1">{member.name}</h4>
-                  <p className="text-sm text-gray-600">{member.role}</p>
-                </motion.div>
-              ))}
+      {/* Scientific Foundation Section */}
+      <section className="py-12 sm:py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-3xl border border-blue-100">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Lightbulb className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800">Critical Foundation for SLCR</h3>
+                  <p className="text-gray-600">Supporting informed decision-making for river rejuvenation</p>
+                </div>
+              </div>
+              <div className="prose prose-lg max-w-none text-justify">
+                <p className="text-gray-700 leading-relaxed">
+                  The hydrogeological modeling project is a critical component of the SLCR initiative. It provides the scientific foundation for the other projects and ensures that the solutions developed are based on a deep understanding of the river system. The knowledge generated by this project can be used to inform policy decisions, guide the implementation of interventions, and monitor the long-term effectiveness of river rejuvenation efforts.
+                </p>
+              </div>
             </div>
-          </div>
-
-          {/* Research and Development Team - Centered */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-primary mb-8 text-center">Research and Development Team</h3>
-            {/* Changed to Flex for centering the 3 items */}
-            <div className="flex flex-wrap justify-center gap-6">
-              {teamMembers.researchTeam.map((member, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.03 }}
-                  className="text-center w-48"
-                >
-                  <div className="w-full aspect-square mb-3 rounded-xl overflow-hidden shadow-md bg-gray-100">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={200}
-                      height={200}
-                      quality={100}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="text-sm font-bold text-gray-800 mb-1">{member.name}</h4>
-                  <p className="text-xs text-gray-500">{member.designation}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>

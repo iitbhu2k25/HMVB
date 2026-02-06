@@ -51,14 +51,14 @@ export default function Footer() {
     return (
         <footer>
             {/* Partners Section - Light Background */}
-            <div className="bg-gradient-to-b from-gray-50 to-gray-100 py-8 sm:py-12">
+            {/* <div className="bg-gradient-to-b from-gray-50 to-gray-100 py-8 sm:py-12">
                 <div className="max-w-7xl mx-auto px-3 sm:px-4">
                     <h3 className="text-center text-xl sm:text-2xl font-bold text-primary mb-6 sm:mb-8">
                         Our Partners & Associates
                     </h3>
                     <LogoLoop logos={partnerLogos} speed={30} />
                 </div>
-            </div>
+            </div> */}
 
             {/* Main Footer */}
             <div className="bg-gradient-to-b from-primary to-primary-dark text-white">

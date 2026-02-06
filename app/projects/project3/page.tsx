@@ -2,46 +2,7 @@
 
 import Image from "next/image";
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-
-// Team EPFA members with photos
-const teamMembers = {
-  principalInvestigators: [
-    {
-      name: "Prof. Shreyans Kumar Jain",
-      designation: "Professor, IIT (BHU), Varanasi",
-      role: "Principal Investigator",
-      image: "/project_images/EPFA/image2.jpg",
-    },
-  ],
-  researchTeam: [
-    {
-      name: "Dr. Varun Shukla",
-      designation: "Research Associate (III)",
-      image: "/project_images/EPFA/image4.png",
-    },
-    {
-      name: "Shruti Vilas Chaudhari",
-      designation: "Junior Research Fellow (JRF)",
-      image: "/project_images/EPFA/image3.png",
-    },
-    {
-      name: "Rajyaguru Soham Nipulbhai",
-      designation: "Junior Research Fellow (JRF)",
-      image: "/project_images/EPFA/image6.jpg",
-    },
-    {
-      name: "Smita Patel",
-      designation: "Project Assistant",
-      image: "/project_images/EPFA/image5.jpg",
-    },
-    {
-      name: "Rakesh Kumar Yadav",
-      designation: "Project Assistant",
-      image: "/project_images/EPFA/image1.jpg",
-    },
-  ],
-};
+import { FlaskConical, Search, AlertTriangle, FileText, Target, Microscope } from 'lucide-react';
 
 export default function EPFAProject() {
   return (
@@ -74,7 +35,7 @@ export default function EPFAProject() {
             className="mb-4"
           >
             <span className="inline-block text-purple-300 text-lg sm:text-xl font-medium tracking-widest uppercase">
-              Project EPFA
+              Project : EPFA
             </span>
           </motion.div>
 
@@ -85,7 +46,7 @@ export default function EPFAProject() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 tracking-tight"
           >
             <span className="bg-gradient-to-r from-white via-purple-100 to-pink-300 bg-clip-text text-transparent drop-shadow-2xl">
-              Emerging Pollutants & Fingerprint Analysis
+              Characterization of Emerging Pollutants
             </span>
           </motion.h1>
 
@@ -95,7 +56,7 @@ export default function EPFAProject() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto"
           >
-            Characterization and Remediation Strategies
+            in the Varuna River
           </motion.p>
         </div>
 
@@ -107,10 +68,9 @@ export default function EPFAProject() {
         </div>
       </section>
 
-      {/* About Section - Side by Side Layout */}
+      {/* About Section */}
       <section className="py-12 sm:py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* Modified grid to items-stretch for equal height columns */}
           <div className="grid lg:grid-cols-2 gap-10 items-stretch">
             {/* Left - Content */}
             <motion.div
@@ -122,13 +82,10 @@ export default function EPFAProject() {
               <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-6">About EPFA</h2>
               <div className="prose prose-lg max-w-none text-justify">
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  The <strong className="text-primary">Characterization of Emerging Pollutants & Fingerprint Analysis (EPFA)</strong> project aims to create a detailed fingerprint library of contaminants found in the Varuna River system. This comprehensive approach enhances water quality monitoring capabilities and enables precise identification of pollution sources.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  The project focuses on identifying emerging contaminants including pharmaceuticals, personal care products, microplastics, and industrial chemicals. Advanced analytical techniques are employed to characterize these pollutants and understand their environmental fate and transport.
+                  The third major project of SLCR is the characterization of <strong className="text-primary">emerging pollutants</strong> in the Varuna River. This project focuses on identifying and quantifying the presence of new and potentially harmful substances in the river water. These emerging pollutants include pharmaceuticals, personal care products, microplastics, and other contaminants that are not typically monitored in conventional water quality assessments.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  Through collaboration with the <strong className="text-primary">University of Copenhagen</strong>, the team is developing effective remediation strategies and creating a replicable framework for pollutant monitoring in river systems across India.
+                  The characterization process involves collecting water samples from various locations along the Varuna River. These samples are analyzed using advanced laboratory techniques, such as gas chromatography-mass spectrometry (GC-MS) and liquid chromatography-tandem mass spectrometry (LC-MS/MS). These techniques allow for the detection and identification of a wide range of chemical compounds, even at very low concentrations.
                 </p>
               </div>
             </motion.div>
@@ -154,107 +111,102 @@ export default function EPFAProject() {
         </div>
       </section>
 
-      {/* Progress Report Section */}
+      {/* Characterization Process Section */}
       <section className="py-12 sm:py-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8">Progress Report</h2>
-            <div className="flex justify-center">
-              <div className="rounded-xl overflow-hidden shadow-lg w-full">
-                <Image
-                  src="/P_3.0.jpg"
-                  alt="Progress Report"
-                  width={1200}
-                  height={600}
-                  quality={100}
-                  className="w-full object-contain"
-                  style={{ minHeight: '500px' }}
-                />
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Research Approach</h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <FlaskConical className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Sample Analysis</h3>
+                    <p className="text-gray-600 leading-relaxed text-justify">
+                      The analysis of the water samples provides a detailed picture of the types and levels of emerging pollutants present in the river. This information is used to assess the potential risks to human health and the environment, and to identify the sources of these pollutants.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Search className="w-6 h-6 text-pink-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Source Identification</h3>
+                    <p className="text-gray-600 leading-relaxed text-justify">
+                      The project helps to identify the sources of these pollutants, such as industrial discharges, agricultural runoff, or untreated sewage. This is critical for developing targeted strategies to reduce the levels of these contaminants.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Target className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Targeted Strategies</h3>
+                    <p className="text-gray-600 leading-relaxed text-justify">
+                      The characterization of emerging pollutants is a critical step in the river rejuvenation process. It allows for the development of targeted strategies to reduce the levels of these contaminants. For example, if a particular pharmaceutical is found to be present at high levels, the project can recommend the implementation of advanced treatment technologies.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Microscope className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Monitoring Program</h3>
+                    <p className="text-gray-600 leading-relaxed text-justify">
+                      The project also involves the development of a monitoring program to track changes in the levels of emerging pollutants over time. This program will allow for the evaluation of the effectiveness of various interventions and the identification of any new or emerging threats.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Team EPFA Section */}
+      {/* Knowledge Generation Section */}
       <section className="py-12 sm:py-16 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-3">Team EPFA</h2>
-            <p className="text-gray-600">The team leading pollutant characterization research</p>
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-3xl border border-purple-100">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-800">Policy & Regulatory Impact</h3>
+                  <p className="text-gray-600">Informing standards for emerging pollutant management</p>
+                </div>
+              </div>
+              <div className="prose prose-lg max-w-none text-justify">
+                <p className="text-gray-700 leading-relaxed">
+                  The knowledge generated by this project can be used to inform the development of regulations and standards for the management of emerging pollutants. This is essential for protecting public health and the environment from the potential harmful effects of these contaminants.
+                </p>
+              </div>
+            </div>
           </motion.div>
-
-          {/* Principal Investigators - Centered */}
-          <div className="mb-16">
-            <div className="flex flex-wrap justify-center gap-8">
-              {teamMembers.principalInvestigators.map((member, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-center w-66"
-                >
-                  <div className="w-full aspect-square mb-4 rounded-xl overflow-hidden shadow-lg bg-gray-100">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={300}
-                      height={300}
-                      quality={100}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="text-lg font-bold text-primary mb-1">{member.name}</h4>
-                  <p className="text-sm text-gray-600">{member.role}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Research Team - CENTERED */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-primary mb-8 text-center">Research and Development Team</h3>
-            
-            {/* Changed from Grid to Flex to enable centering */}
-            <div className="flex flex-wrap justify-center gap-6">
-              {teamMembers.researchTeam.map((member, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.03 }}
-                  // Added specific width to maintain consistent card size
-                  className="text-center w-48"
-                >
-                  <div className="w-full aspect-square mb-3 rounded-xl overflow-hidden shadow-md bg-gray-100">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={200}
-                      height={200}
-                      quality={100}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h4 className="text-sm font-bold text-gray-800 mb-1">{member.name}</h4>
-                  <p className="text-xs text-gray-500">{member.designation}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
     </main>

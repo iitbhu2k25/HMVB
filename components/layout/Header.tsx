@@ -2,159 +2,47 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Droplets, Waves, Map } from 'lucide-react';
 
 export default function Header() {
-    return (
-        // Adjusted padding to be balanced (py-3 md:py-4)
-        <header className="bg-white shadow-sm relative z-40">
-            <div className="max-w-[1800px] mx-auto px-4 sm:px-6 py-3 md:py-4">
-                
-                {/* Desktop Layout - All logos and title in one row */}
-                <div className="hidden md:flex items-center justify-between gap-4">
-                    {/* Logo 1 - Denmark */}
-                    <Link
-                        href="https://um.dk/en"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="shrink-0 hover:opacity-80 transition-opacity"
-                    >
-                        <Image
-                            src="/denmark.png"
-                            alt="Denmark Ministry of Foreign Affairs"
-                            width={220}
-                            height={90}
-                            // UPDATED: Reduced slightly from h-20 to h-14/h-16
-                            className="h-14 lg:h-16 w-auto object-contain"
-                            priority
-                            unoptimized
-                        />
-                    </Link>
+  return (
+    <header className="relative w-full overflow-hidden">
+      {/* Dynamic Background Layer */}
+      <div className="absolute inset-0 bg-[#0a192f] bg-gradient-to-br from-[#0a192f] via-[#0a192f] to-[#0a192f]">
+        {/* Subtle Overlay Pattern (Optional: Add a faint map or grid pattern) */}
+        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
+        
+        {/* Animated Light Effect */}
+        <motion.div 
+          animate={{ 
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.1, 1] 
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute -top-1/2 -left-1/4 w-[100%] h-[200%] bg-blue-400/10 rounded-full blur-[120px]"
+        />
+      </div>
 
-                    {/* Logo 2 - Ministry of Jal Shakti */}
-                    <Link
-                        href="https://jalshakti.gov.in/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="shrink-0 hover:opacity-80 transition-opacity"
-                    >
-                        <Image
-                            src="/Ministry_of_Jal_Shakti.svg"
-                            alt="Ministry of Jal Shakti"
-                            width={100}
-                            height={90}
-                            // UPDATED: Reduced slightly from h-20 to h-14/h-16
-                            className="h-14 lg:h-16 w-auto object-contain"
-                            style={{ filter: 'none' }}
-                            priority
-                        />
-                    </Link>
+      <div className="max-w-[1800px] mx-auto px-6 py-4 md:py-6 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
-                    {/* Center Title */}
-                    <div className="text-center flex-1 px-4">
-                        <Link href="/" className="inline-block">
-                            {/* UPDATED: Text size adjusted to match new logo balance */}
-                            <h1 className="text-xl lg:text-2xl xl:text-3xl font-bold text-primary tracking-tight hover:text-primary-light transition-colors leading-tight">
-                                Smart Laboratory on Clean Rivers
-                            </h1>
-                        </Link>
-                    </div>
+          {/* Center: Main Project Title */}
+          <div className="text-center flex-1 max-w-8xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
 
-                    {/* Logo 3 - SLCR */}
-                    <Link
-                        href="/"
-                        className="shrink-0 hover:opacity-80 transition-opacity"
-                    >
-                        <Image
-                            src="/Logo_edited.png"
-                            alt="SLCR Logo"
-                            width={180}
-                            height={180}
-                            // UPDATED: Reduced slightly from h-20 to h-14/h-16
-                            className="h-14 lg:h-16 w-auto object-contain"
-                            priority
-                        />
-                    </Link>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+                Hydrological Modelling of Varuna River Basin 
+              </h1>
+            </motion.div>
+          </div>
 
-                    {/* Logo 4 - Namami Gange */}
-                    <Link
-                        href="https://nmcg.nic.in/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="shrink-0 hover:opacity-80 transition-opacity"
-                    >
-                        <Image
-                            src="/namiti_gange.gif"
-                            alt="Namami Gange Programme"
-                            width={80}
-                            height={60}
-                            // UPDATED: Reduced slightly from h-20 to h-14/h-16
-                            className="h-14 lg:h-16 w-auto object-contain"
-                            priority
-                        />
-                    </Link>
-                </div>
-
-                {/* Mobile Layout */}
-                <div className="md:hidden">
-                    <div className="flex items-center justify-between gap-2">
-                        <Link href="https://um.dk/en" target="_blank" rel="noopener noreferrer" className="shrink-0">
-                            <Image
-                                src="/denmark.png"
-                                alt="Denmark Ministry"
-                                width={160}
-                                height={70}
-                                // UPDATED: Mobile size h-9 to h-10
-                                className="h-9 sm:h-10 w-auto object-contain"
-                                priority
-                                unoptimized
-                            />
-                        </Link>
-
-                        <Link href="https://jalshakti.gov.in/" target="_blank" rel="noopener noreferrer" className="shrink-0">
-                            <Image
-                                src="/Ministry_of_Jal_Shakti.svg"
-                                alt="Ministry of Jal Shakti"
-                                width={80}
-                                height={70}
-                                className="h-9 sm:h-10 w-auto object-contain"
-                                style={{ filter: 'none' }}
-                                priority
-                            />
-                        </Link>
-
-                        <Link href="/" className="shrink-0">
-                            <Image
-                                src="/Logo_edited.png"
-                                alt="SLCR Logo"
-                                width={140}
-                                height={140}
-                                className="h-9 sm:h-10 w-auto object-contain"
-                                priority
-                            />
-                        </Link>
-
-                        <Link href="https://nmcg.nic.in/" target="_blank" rel="noopener noreferrer" className="shrink-0">
-                            <Image
-                                src="/namiti_gange.gif"
-                                alt="Namami Gange"
-                                width={60}
-                                height={40}
-                                className="h-9 sm:h-10 w-auto object-contain"
-                                priority
-                            />
-                        </Link>
-                    </div>
-
-                    {/* Mobile Title */}
-                    <div className="text-center mt-3 pt-3 border-t border-gray-100">
-                        <Link href="/">
-                            <h1 className="text-lg sm:text-xl font-bold text-primary leading-tight">
-                                Smart Laboratory on Clean Rivers
-                            </h1>
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
+        </div>
+      </div>
+    </header>
+  );
 }

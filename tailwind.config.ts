@@ -62,6 +62,7 @@ const config: Config = {
         'float': 'float 3s ease-in-out infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
         'ticker': 'ticker 30s linear infinite',
+        'marquee': 'marquee 25s linear infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -85,6 +86,10 @@ const config: Config = {
           '50%': { boxShadow: '0 0 40px rgba(255, 153, 51, 0.7)' },
         },
         ticker: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },

@@ -2,15 +2,81 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Users, Globe, Target, Building2, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Users, Globe, Target, Building2, ChevronRight, ChevronDown, Lightbulb, Eye, Heart, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
+
+// Accordion Section Component
+function AccordionSection({
+  title,
+  icon: Icon,
+  children,
+  isOpen,
+  onToggle,
+  gradientFrom = 'from-blue-500',
+  gradientTo = 'to-teal-500'
+}: {
+  title: string;
+  icon: React.ElementType;
+  children: React.ReactNode;
+  isOpen: boolean;
+  onToggle: () => void;
+  gradientFrom?: string;
+  gradientTo?: string;
+}) {
+  return (
+    <div className="mb-4 rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      <button
+        onClick={onToggle}
+        className={`w-full flex items-center justify-between p-5 bg-gradient-to-r ${gradientFrom} ${gradientTo} text-white font-semibold text-lg hover:opacity-95 transition-opacity`}
+      >
+        <div className="flex items-center gap-3">
+          <Icon className="w-6 h-6" />
+          <span>{title}</span>
+        </div>
+        <ChevronDown
+          className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+        />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="p-6 bg-white">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function AboutSLCRPage() {
+  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
+    objectives: false,
+    vision: false,
+    coreValues: false,
+    partners: false,
+    coordinator: false
+  });
+
+  const toggleSection = (section: string) => {
+    setOpenSections(prev => ({ ...prev, [section]: !prev[section] }));
+  };
+
   return (
     <div className="min-h-screen">
       {/* Main Content */}
       <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+        {/* CHANGED: Replaced 'max-w-7xl mx-auto px-4' with 'w-[95%] max-w-[1800px] mx-auto' 
+            to match the wider layout of the Activities page. */}
+        <div className="w-[95%] max-w-[1800px] mx-auto">
           {/* Fabulous Header */}
           <div className="text-center mb-16 pt-8">
             <motion.h1
@@ -35,11 +101,11 @@ export default function AboutSLCRPage() {
                 <div className="prose max-w-none text-gray-700">
                   <p className="mb-4">
                     <span className="float-left text-7xl font-bold text-primary mr-3 leading-none mt-[-8px]">E</span>
-                    stablishment of Secretariat for Smart Laboratory on Clean Rivers in Varanasi (SLCR) is the initiative discussed between the Hon'ble Prime Minister of India,
-                    H.E. Shri. Narendra Modi and the Prime Minister of Denmark, H.E. Ms Mette Frederiksen, on 09th October 2021 during the latter's visit to India.
-                    SLCR was also mention in the India–Denmark Joint Statement released on 3rd May 2021 during the Visit of Hon'ble Prime Minister of India, H.E. Shri.
+                    stablishment of Secretariat for Smart Laboratory on Clean Rivers in Varanasi (SLCR) is the initiative discussed between the Hon&apos;ble Prime Minister of India,
+                    H.E. Shri. Narendra Modi and the Prime Minister of Denmark, H.E. Ms Mette Frederiksen, on 09th October 2021 during the latter&apos;s visit to India.
+                    SLCR was also mention in the India–Denmark Joint Statement released on 3rd May 2021 during the Visit of Hon&apos;ble Prime Minister of India, H.E. Shri.
                     Narendra Modi On 03rd May 2022 as one the initiatives both the countries looked forward eagerly to be launched. On 12th September 2022 during the
-                    Hon'ble Minister of Jal Sakti's visit to Denmark, a Memorandum of Understanding was signed between the Ministry of Jal Shakti and the Danish
+                    Hon&apos;ble Minister of Jal Sakti&apos;s visit to Denmark, a Memorandum of Understanding was signed between the Ministry of Jal Shakti and the Danish
                     Environment Ministry as a broad-based framework in the field of Water Resources Development and Management including the SLCR initiative.
                   </p>
                 </div>
@@ -54,7 +120,7 @@ export default function AboutSLCRPage() {
                   />
                 </div>
                 <p className="text-center text-sm text-gray-500 mt-2 italic flex-shrink-0">
-                  Hon'ble Prime Minister of India and Prime Minister of Denmark
+                  Hon&apos;ble Prime Minister of India and Prime Minister of Denmark
                 </p>
               </div>
             </div>
@@ -148,6 +214,284 @@ export default function AboutSLCRPage() {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* ============ DROPDOWN SECTIONS ============ */}
+            <div className="mt-16 mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500">
+                About SLCR Details
+              </h2>
+
+              {/* Dropdown 1: Objectives */}
+              <AccordionSection
+                title="Objectives of SLCR"
+                icon={Target}
+                isOpen={openSections.objectives}
+                onToggle={() => toggleSection('objectives')}
+                gradientFrom="from-blue-600"
+                gradientTo="to-blue-400"
+              >
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    The Smart Laboratory on Clean Rivers (SLCR) has been established as a pioneering initiative under the India–Denmark partnership to support sustainable river rejuvenation through innovation, collaboration, and real-world experimentation. The core objectives of SLCR are outlined below:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-3">
+                    <li>
+                      SLCR aims to function as a <strong>Smart Living Laboratory</strong> that integrates scientific research, policy evaluation, technological innovation, and field-level implementation within actual river systems. By combining virtual platforms with on-field experimentation, SLCR seeks to bridge the gap between theory and practice in river basin management.
+                    </li>
+                    <li>
+                      A key objective of SLCR is to <strong>facilitate multi-stakeholder engagement</strong> by bringing together central and state government agencies, urban local bodies, academic institutions, research organizations, industries, and local communities. This collaborative ecosystem enables collective problem identification, solution co-creation, and coordinated action for clean river initiatives.
+                    </li>
+                    <li>
+                      SLCR also focuses on the <strong>evaluation and localization of global best practices</strong>, including advanced technologies, governance frameworks, and sustainable policies in water resources management. These solutions are assessed for their applicability in Indian conditions, particularly for small and medium river systems.
+                    </li>
+                    <li>
+                      Another major objective is to promote <strong>data-driven and evidence-based decision-making</strong> by developing hydrological models, analytical tools, and decision support systems that support river health assessment, planning, and management.
+                    </li>
+                    <li>
+                      SLCR aims to <strong>demonstrate pilot-scale solutions</strong> through its on-field Living Lab component, using selected river stretches as experimental sites. Successful interventions are further refined and prepared for upscaling at basin and national levels.
+                    </li>
+                    <li>
+                      In addition, SLCR is committed to <strong>capacity building and knowledge dissemination</strong>, supporting learning, training, and exchange of expertise among practitioners, policymakers, and researchers engaged in river rejuvenation and water management.
+                    </li>
+                  </ul>
+                </div>
+              </AccordionSection>
+
+              {/* Dropdown 2: Vision and Mission */}
+              <AccordionSection
+                title="Vision and Mission"
+                icon={Eye}
+                isOpen={openSections.vision}
+                onToggle={() => toggleSection('vision')}
+                gradientFrom="from-purple-600"
+                gradientTo="to-purple-400"
+              >
+                <div className="space-y-6 text-gray-700 leading-relaxed">
+                  <div>
+                    <h3 className="text-xl font-bold text-purple-700 mb-3">Vision</h3>
+                    <p>
+                      The vision of the Smart Laboratory on Clean Rivers (SLCR) is to emerge as a <strong>globally recognized center of excellence</strong> for clean river rejuvenation and sustainable water resources management, fostering resilient river ecosystems through innovation, collaboration, and science-driven solutions.
+                    </p>
+                    <p className="mt-3">
+                      SLCR envisions a future where rivers are managed as living systems, supported by adaptive governance, technological innovation, and active participation of all stakeholders, ensuring ecological integrity and societal well-being.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-purple-700 mb-3">Mission</h3>
+                    <p>
+                      The mission of SLCR is to establish a <strong>dynamic and inclusive living laboratory</strong> that enables learning, engagement, co-creation, and experimentation in real river environments.
+                    </p>
+                    <p className="mt-3">
+                      SLCR is committed to strengthening the <strong>science–policy–practice interface</strong> by integrating research outputs, field observations, and policy frameworks into actionable strategies for river rejuvenation.
+                    </p>
+                    <p className="mt-3">
+                      Through the India–Denmark partnership, SLCR seeks to <strong>leverage international expertise and shared knowledge</strong> to address complex water challenges, while ensuring solutions are locally relevant and scalable.
+                    </p>
+                    <p className="mt-3">
+                      The mission further includes supporting national priorities such as river rejuvenation and sustainable water management by generating <strong>replicable models, decision-support tools, and institutional knowledge</strong> that can be adopted across river basins in India.
+                    </p>
+                  </div>
+                </div>
+              </AccordionSection>
+
+              {/* Dropdown 3: Core Values */}
+              <AccordionSection
+                title="Core Values"
+                icon={Heart}
+                isOpen={openSections.coreValues}
+                onToggle={() => toggleSection('coreValues')}
+                gradientFrom="from-rose-600"
+                gradientTo="to-rose-400"
+              >
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    The Smart Laboratory on Clean Rivers (SLCR) operates on a strong foundation of values that guide its activities, partnerships, and long-term impact.
+                  </p>
+                  <ul className="list-disc pl-6 space-y-3">
+                    <li>
+                      <strong>Sustainability</strong> lies at the core of SLCR&apos;s approach, emphasizing environmentally sound, socially inclusive, and economically viable solutions for river and water resource management.
+                    </li>
+                    <li>
+                      <strong>Collaboration and Partnership</strong> are central to SLCR&apos;s functioning. The laboratory promotes active cooperation among government bodies, academic institutions, industries, and communities, recognizing that complex river challenges require collective action.
+                    </li>
+                    <li>
+                      <strong>Innovation and Experimentation</strong> drive SLCR&apos;s work culture. The laboratory encourages testing, learning, and refinement of innovative ideas through real-time field experimentation and adaptive management practices.
+                    </li>
+                    <li>
+                      <strong>Scientific Integrity and Excellence</strong> guide all research and analytical activities at SLCR. Decisions and recommendations are grounded in robust data, rigorous analysis, and transparent methodologies.
+                    </li>
+                    <li>
+                      <strong>Inclusivity and Community Engagement</strong> ensure that local knowledge, stakeholder perspectives, and societal needs are integrated into solution design and implementation.
+                    </li>
+                    <li>
+                      <strong>Transparency and Accountability</strong> underpin governance and project implementation, fostering trust, responsible decision-making, and measurable outcomes.
+                    </li>
+                  </ul>
+                </div>
+              </AccordionSection>
+
+              {/* Dropdown 4: Partner Institutes */}
+              <AccordionSection
+                title="Partner Institutes"
+                icon={Building2}
+                isOpen={openSections.partners}
+                onToggle={() => toggleSection('partners')}
+                gradientFrom="from-teal-600"
+                gradientTo="to-teal-400"
+              >
+                <div className="space-y-8">
+                  {/* Indian Institutions */}
+                  <div>
+                    <h3 className="text-xl font-bold text-teal-700 mb-6 border-b pb-2">Indian Institutions</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {/* IIT BHU */}
+                      <a href="https://www.iitbhu.ac.in" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture1.png" alt="IIT BHU" width={80} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">IIT (BHU) Varanasi</h4>
+                          <p className="text-xs text-gray-600 mt-1">Host institution for SLCR</p>
+                        </div>
+                      </a>
+                      {/* IIT Delhi */}
+                      <a href="https://home.iitd.ac.in" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture2.png" alt="IIT Delhi" width={80} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">IIT Delhi</h4>
+                          <p className="text-xs text-gray-600 mt-1">Water resources engineering</p>
+                        </div>
+                      </a>
+                      {/* IIT Bombay */}
+                      <div className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture3.png" alt="IIT Bombay" width={80} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">IIT Bombay</h4>
+                          <p className="text-xs text-gray-600 mt-1">Hydrology & data analytics</p>
+                        </div>
+                      </div>
+                      {/* IIT Madras */}
+                      <a href="https://www.iitm.ac.in" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture4.png" alt="IIT Madras" width={80} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">IIT Madras</h4>
+                          <p className="text-xs text-gray-600 mt-1">Water systems modeling</p>
+                        </div>
+                      </a>
+                      {/* IIT Guwahati */}
+                      <a href="https://www.iitg.ac.in" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture5.png" alt="IIT Guwahati" width={80} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">IIT Guwahati</h4>
+                          <p className="text-xs text-gray-600 mt-1">River hydraulics & geomorphology</p>
+                        </div>
+                      </a>
+                      {/* BHU */}
+                      <a href="https://www.bhu.ac.in" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture7.png" alt="BHU" width={80} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">Banaras Hindu University</h4>
+                          <p className="text-xs text-gray-600 mt-1">Multidisciplinary academic support</p>
+                        </div>
+                      </a>
+                      {/* CGWB */}
+                      <a href="https://cgwb.gov.in" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture8.png" alt="CGWB" width={80} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">Central Ground Water Board</h4>
+                          <p className="text-xs text-gray-600 mt-1">Groundwater data & guidance</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* International Institutions */}
+                  <div>
+                    <h3 className="text-xl font-bold text-teal-700 mb-6 border-b pb-2">International Institutions</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {/* Aarhus University */}
+                      <a href="https://www.au.dk" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture10.png" alt="Aarhus University" width={120} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">Aarhus University</h4>
+                          <p className="text-xs text-gray-600 mt-1">Denmark - Water governance</p>
+                        </div>
+                      </a>
+                      {/* Université de Lyon */}
+                      <a href="https://www.universite-lyon.fr" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture11.png" alt="Université de Lyon" width={120} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">Université de Lyon</h4>
+                          <p className="text-xs text-gray-600 mt-1">France - Environmental sciences</p>
+                        </div>
+                      </a>
+                      {/* University of Copenhagen */}
+                      <a href="https://www.ku.dk" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture6.svg" alt="University of Copenhagen" width={140} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">University of Copenhagen</h4>
+                          <p className="text-xs text-gray-600 mt-1">Denmark - Hydrology & climate</p>
+                        </div>
+                      </a>
+                      {/* VetAgro Sup */}
+                      <a href="https://www.vetagro-sup.fr" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture12.png" alt="VetAgro Sup" width={100} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">VetAgro Sup</h4>
+                          <p className="text-xs text-gray-600 mt-1">France - Environmental health</p>
+                        </div>
+                      </a>
+                      {/* Hokkaido University */}
+                      <a href="https://www.hokudai.ac.jp" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="bg-gray-50 rounded-xl p-4 text-center hover:shadow-lg transition-all border border-gray-100 hover:border-teal-300">
+                          <div className="h-24 flex items-center justify-center mb-3">
+                            <Image src="/about/Picture9.jpg" alt="Hokkaido University" width={80} height={80} className="object-contain max-h-20 group-hover:scale-105 transition-transform" />
+                          </div>
+                          <h4 className="font-semibold text-gray-800 text-sm">Hokkaido University</h4>
+                          <p className="text-xs text-gray-600 mt-1">Japan - Cold-region hydrology</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </AccordionSection>
+
+              {/* Dropdown 5: Coordinator's Message */}
+              <AccordionSection
+                title="Coordinator's Message"
+                icon={MessageCircle}
+                isOpen={openSections.coordinator}
+                onToggle={() => toggleSection('coordinator')}
+                gradientFrom="from-amber-600"
+                gradientTo="to-amber-400"
+              >
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p className="italic text-gray-500">
+                    The Coordinator&apos;s message will be updated soon with insights into SLCR&apos;s journey, achievements, and future aspirations.
+                  </p>
+                </div>
+              </AccordionSection>
             </div>
           </motion.div>
         </div>
