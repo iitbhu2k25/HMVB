@@ -46,6 +46,7 @@ const navItems: NavItem[] = [
         ]
     },
     { label: 'TEM Data Visualization', href: '/tem-data' },
+    { label: 'Contact us', href: '/contact' },
 ];
 
 export default function MainNav() {

@@ -1,7 +1,7 @@
 {
-  "/groundwater/potential-zone/page": "app/groundwater/potential-zone/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/contact/page": "app/contact/page.js",
   "/groundwater/quality/page": "app/groundwater/quality/page.js",
-  "/mar/sites/page": "app/mar/sites/page.js",
   "/page": "app/page.js",
   "/tem-data/page": "app/tem-data/page.js"
 }
